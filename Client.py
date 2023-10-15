@@ -4,7 +4,7 @@ from socket import *
 serverName = "127.0.0.1"  # Localhost IP-adresse
 serverPort = 12000  # Port
 client = socket(AF_INET, SOCK_STREAM)  # AF_INET = IPv4. SOCK_STREAM = en TCP-socket
-client.connect((serverName, serverPort))  # Opret forbindelse til serveren
+client.connect((serverName, serverPort))  # Opretter forbindelse til serveren
 
 # Velkomstbesked
 print("Welcome to my calculator")
@@ -23,11 +23,11 @@ while True:
 
     # Viser resultatet fra serveren
     answer = client.recv(1024)  # prøver at modtage data(op til 1024 bytes)
-    print(f'Answer is ' + answer.decode())  # Decode, når man sender. Udskriver dataen som en string
+    print(f'Answer is ' + answer.decode())  # Decode, når man modtager data. Udskriver dataen som en string
 
     
     exit_choice = input("Type 'Exit' to terminate or press Enter to continue: ")
-    if exit_choice == ("Exit") or ("exit"):
+    if exit_choice.lower() == ("exit"):
         break
 
 

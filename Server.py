@@ -10,7 +10,7 @@ def handleClient(connectionSocket, address):
         message = message.strip().lower()  # Fjerner mellemrum og konverter til små bogstaver
 
         
-        if message == ('Exit') or (exit):
+        if message.lower() == ('exit'):
             print("Connection has been terminated")
             connectionSocket.close()
             break
@@ -56,4 +56,4 @@ print('Server is running and listening')
 
 while True:
     connectionSocket, addr = serverSocket.accept()  # Accepter forbindelser
-    threading.Thread(target=handleClient, args=(connectionSocket, addr)).start()  # Start en ny thread til at håndtere klienten
+    threading.Thread(target=handleClient, args=(connectionSocket, addr)).start()  # Starter en ny thread til at håndtere klienten
